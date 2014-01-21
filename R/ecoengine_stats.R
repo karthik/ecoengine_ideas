@@ -33,7 +33,7 @@ geom_bar(stat = "identity", position = "stack") +
 scale_fill_manual(values = brewer.pal(5, "Set1")) + ggtitle("Distribution of specimens across major classes") + 
 guides(fill=guide_legend(title="Class"))
 
-ggsave(clss_plot, file = "clss_plot.png")
+ggsave(clss_plot, file = "clss_plot.png", width = 6, height = 4)
 
 
 
