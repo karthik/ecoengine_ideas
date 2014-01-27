@@ -26,7 +26,7 @@ write.csv(all_results, file = "all_results.csv")
 all_results <- read.csv("all_results.csv")
 library(ggplot2)
 df <- melt(all_results, id.vars = "begin")
-ggplot(df, aes(x = begin, y = value, fill = variable)) + geom_bar(stat = "identity", position = "stack")
+
 
 clss_plot <- ggplot(df, aes(x = begin, y = value, fill = factor(variable))) + 
 geom_bar(stat = "identity", position = "stack") + 
