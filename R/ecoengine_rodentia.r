@@ -1,4 +1,4 @@
-setwd("/tmp")
+setwd("~/Desktop")
 library(ecoengine)
 library(plyr)
 library(lubridate)
@@ -19,12 +19,12 @@ for(i in 1:length(rodent_data)) {
 }
 
 
-files <- list.files(pattern = "*.csv")
+files <- list.files(pattern = "rodent_data")
 all_rodent_data <- ldply(files, function(x) {
 		read.csv(x, header = TRUE)
 }, .progress = "text")
 
-# This saves all 210,000 observations into a ~700 kb file.
+# This saves all 235,000 observations into a ~700 kb file.
 save(all_rodent_data, file = "results.Rda", compress = "bzip2")
 
 load("results.Rda")
@@ -48,6 +48,5 @@ library(rMaps)
 # csv is here: https://gist.github.com/karthik/9196883
 rodents_summary <- read.csv("rodents_summary.csv", header = TRUE)
 # Something's wrong here. Slider works one way. But it wont reset state when you go back
-# How do I change the color scale?
 # Is there any way to speed up the animation? 
 ichoropleth(Counts ~ State, data = rodents_summary, animate = "Year", pal = "Reds", ncuts = 4)
